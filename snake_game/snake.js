@@ -6,7 +6,7 @@ function init()
 	W = H = canvas.width = canvas.height = 800;
 	pen = canvas.getContext('2d');
 	cs=66;
-	score=5;
+	score=0;
 	game_over=false;
 	drawgame=1;
 	food_img= new Image();	
@@ -152,5 +152,5 @@ function gameloop()
 	update();
 }
 
-var f=setInterval(gameloop,100);
+var f=setInterval(gameloop,150);
 
