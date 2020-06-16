@@ -7,7 +7,7 @@ export { Stack }
 class Stack{
     constructor(){
         this.size = 0;
-        this.buffer = 4;
+        this.buffer = 1;
         this.stack = [];
     }
 
