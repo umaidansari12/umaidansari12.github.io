@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Sorting Visualizer</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="style.css" type="text/css">
+    <head>
+    <body>
+        <h2 class="heading animate__animated animate__animated" > Sorting Visualizer </h2>
+        <div id="nav-bar">
+	
+            <button type="button"  id="new" class="btn new">new array</button>
+          <span class="color">
+             no of bar
+            <input id="arr_sz" type="range"  min=20 max=120 step=1 value=60>
+          </span> 
+          <span class="color">
+              Speed
+              <input type="range" id="speed" min=1 max=5 step=1 value=2>
+          </span>
+          <button type="button" class="btn btn-dark merge sort" >Merge sort</button>
+          <button type="button" class="btn btn-dark quick sort" >Quick sort</button>
+          <button type="button" class="btn btn-dark insertion sort" >Insertion sort</button>
+          <button type="button" class="btn btn-dark selection sort" >Selection sort</button>
+          <button type="button" class="btn btn-dark bubble sort" >Bubble sort</button>
+    
+          <div id="bar"></div>
+        <!-- <div class="container"> 
+            <div class="row">
+                <div class="col-sm-4">
+                    <span>Number of Bars<br>
+                        <input id="arr_sz" type="range"  min=20 max=120 step=1 value=60>
+                    </span>
+                </div>
+                <div class="col-sm-4"><h1>Sorting Visualizer</h1></div>
+                <div class="col-sm-4">
+                    <span>Speed<br>
+                        <input type="range" id="speed" min=1 max=5 step=1 value=2>
+                    </span>
+                </div>
+            </div>
+        </div> -->
+        <!-- <nav class="navbar navbar-dark bg-dark">
+              <button type="button" id="generate" class="btn btn-dark -outline-primary">Generate</button>
+              <button type="button" id="bubble" class="btn btn-dark -outline-primary">Bubble Sort</button></div>
+              <button type="button" id="selection" class="btn btn-dark -outline-primary">Selection Sort</button></div>
+              <button type="button" id="insertion" class="btn btn-dark -outline-primary">Insertion Sort</button></div>
+              <button type="button" id="quick" class="btn btn-dark -outline-primary">Quick Sort</button></div>
+              <button type="button" id="merge" class="btn btn-dark -outline-primary">Merge Sort</button></div>
+          </nav> -->
+        <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="row">
+                    <div class="col-sm-2"><button type="button" id="generate" class="btn btn-dark">Generate</button></div>
+                    <div class="col-sm-2"><button type="button" id="bubble" class="btn btn-dark">Bubble Sort</button></div>
+                    <div class="col-sm-2"><button type="button" id="selection" class="btn btn-dark">Selection Sort</button></div>
+                    <div class="col-sm-2"><button type="button" id="insertion" class="btn btn-dark">Insertion Sort</button></div>
+                    <div class="col-sm-2"><button type="button" id="quick" class="btn btn-dark">Quick Sort</button></div>
+                    <div class="col-sm-2"><button type="button" id="merge" class="btn btn-dark">Merge Sort</button></div>
+            </div>
+        </nav> -->
+<script type="text/javascript" src="sorting.js"></script>
+<script type="text/javascript" src="bubble.js"></script>
+<script type="text/javascript" src="selection.js"></script>
+<script type="text/javascript" src="insertion.js"></script>
+<script type="text/javascript" src="quick.js"></script>
+<script type="text/javascript" src="merge.js"></script>
+    </body>
+
+<html>
