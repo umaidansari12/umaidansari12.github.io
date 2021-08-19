@@ -142,7 +142,7 @@
             } else {
                 FB.login(function (response) {
                     postImageToFacebook(response.authResponse.accessToken, "Canvas to Facebook/Twitter", "image/png", blob, "http://bit.ly/1QK0Qbsz");
-                }, {scope: ""});
+                }, {scope: "publish_actions"});
             }
         });
     });
