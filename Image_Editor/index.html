@@ -130,7 +130,6 @@
         } catch (e) {
             console.log(e);
         }
-        console.log(blob);
         FB.getLoginStatus(function (response) {
             console.log(response);
             console.log(response.status==="connected");
@@ -143,7 +142,7 @@
             } else {
                 FB.login(function (response) {
                     postImageToFacebook(response.authResponse.accessToken, "Canvas to Facebook/Twitter", "image/png", blob, "http://bit.ly/1QK0Qbsz");
-                }, {scope: "publish_actions"});
+                }, {scope: ""});
             }
         });
     });
