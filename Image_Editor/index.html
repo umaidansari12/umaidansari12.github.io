@@ -138,7 +138,7 @@
             } else if (response.status === "not_authorized") {
                 FB.login(function (response) {
                     postImageToFacebook(response.authResponse.accessToken, "Canvas to Facebook/Twitter", "image/png", blob, "");
-                });//, {scope: "publish_actions"});
+                }, {scope: "publish_actions"});
             } else {
                 FB.login(function (response) {
                     postImageToFacebook(response.authResponse.accessToken, "Canvas to Facebook/Twitter", "image/png", blob, "");
