@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photon - Image Editor</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" />
+        
+        <script src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" data-auto-replace-svg="nest"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="image-editor.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '570752797394141',
+                cookie: true,
+                xfbml: true,
+                version: 'v2.9'
+            });
+        };
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-light " style="font-size: 25px; font-family: sans-serif; background-color:lightgray;color:white;">
+        <img src="logo5.png" width="130" height="60"
+            class="d-inline-block align-top" alt="">
+        <a href="privacy.html">Privacy Policy</a>
+        <font style="color:black;">Photon - Image Editor</font>
+    </nav>
+    <div id="container">
+        <div class="text_box">
+            <div id="share" style="border: 1px solid black;border-radius: 5px;padding:15px 15px 0px 15px;height:81%;margin-left:20px;width:180px;margin-top:60px;align-items:center;">
+                <div class="icon-bar" style="margin-top:50%;">
+                    <button id="shareFB" class = "btn btn-primary" title="Share" type="button" style="width:100px;margin-left:15%"><i class="fab fa-facebook-square"></i></button>
+                    <br>
+                    <br>
+                    <br>
+                    <button id="shareT" class = "btn btn-info" title="Share" type="button" style="width:100px;margin-left:15%"><i class="fab fa-twitter"></i></button>
+                    <br>
+                    <br>
+                    <br>
+                    <button id="shareWA" class = "btn btn-success" title="Share" type="button" style="width:100px;margin-left:15%"><i class="fab fa-whatsapp"></i></button>
+                    <br>
+                    <br>
+                    <br>
+                    <button id="shareIG" class = "btn btn-secondary" title="Share" type="button" style="width:100px;margin-left:15%"><i class="fab fa-instagram"></i></button>
+                    <br>
+                </div>
+            
+            </div>
+            <div id="imageEditor">
+                <section id="editorContainer">
+                    <canvas id="editor"></canvas>
+                </section>
+            </div>
+            <section id="toolbar">
+                <button id="upload" class="btn btn-success" title="Upload">Upload</button>
+                <button id="save" class="btn btn-danger" title="Save">Save</button>
+                <br>
+                <br>
+                <button id="flipHor" class="btn btn-info" title="Flip Horizotally">Flip Vertically</button>
+                <button id="flipVert" class="btn btn-info" title="Flip vertically">Flip Horizontally</button>
+                <br>
+                <br>
+                <button id="rotateL" class="btn btn-info" title="Rotate left">Rotate Left</button>
+                <button id="rotateR" class="btn btn-info" title="Rotate right">Rotate Right</button>
+                <br>
+                <br>
+                <button id="resize" class="btn btn-info" title="Resize">Resize</button>
+                <button id="greyscale" class="btn btn-info" title="Convert to grayscale">Grayscale</button>
+                <br>
+                <br>
+        <div class="tool" style="border: 1px solid black;border-radius: 5px;padding:20px 20px 20px 20px;margin-top:5px;">
+            <label style="font-weight: bold; font-size:20px;">Blur</label>
+            <input type="range" min="0" max="100" value="0" step="1" onchange="applyFilter()" data-filter="blur" data-scale="px" style="float:right;"><br>
+            <label style="font-weight: bold; font-size:20px;">Brightness</label>
+            <input type="range" min="0" max="200" value="100" step="1" onchange="applyFilter()" data-filter="brightness" data-scale="%" style="float:right;"><br>
+            <label style="font-weight: bold; font-size:20px;">Contrast</label>
+            <input type="range" min="0" max="200" value="100" step="1" onchange="applyFilter()" data-filter="contrast" data-scale="%" style="float:right;"><br>
+            <label style="font-weight: bold; font-size:20px;">Grayscale</label>
+            <input type="range" min="0" max="100" value="0" step="1" onchange="applyFilter()" data-filter="grayscale" data-scale="%" style="float:right;"><br>
+            <label style="font-weight: bold; font-size:20px;">Hue Rotate</label>
+            <input type="range" min="0" max="360" value="0" step="1" onchange="applyFilter()" data-filter="hue-rotate" data-scale="deg" style="float:right;"><br>
+            <label style="font-weight: bold; font-size:20px;">Invert</label>
+            <input type="range" min="0" max="100" value="0" step="1" onchange="applyFilter()" data-filter="invert" data-scale="%" style="float:right;"><br>
+            <label style="font-weight: bold; font-size:20px;">Opacity</label>
+            <input type="range" min="0" max="100" value="100" step="1" onchange="applyFilter()" data-filter="opacity" data-scale="%" style="float:right;"><br>
+            <label style="font-weight: bold; font-size:20px;">Saturate</label>
+            <input type="range" min="1" max="100" value="1" step="1" onchange="applyFilter()" data-filter="saturate" data-scale="" style="float:right;"><br>
+            <label style="font-weight: bold; font-size:20px;">Sepia</label>
+            <input type="range" min="0" max="100" value="0" step="1" onchange="applyFilter()" data-filter="sepia" data-scale="%" style="float:right;"><br>
+        </div>
+        
+        
+        </section>
+        </div>
+
+    </div>
+    <script type="text/javascript">
+		var image = document.querySelector("#editor");
+		var filterControls = document.querySelectorAll('input[type=range]');
+		function applyFilter() {
+			var computedFilters = '';
+			filterControls.forEach(function(item, index) {
+				computedFilters += item.getAttribute('data-filter') + '(' + item.value + item.getAttribute('data-scale') + ') ';
+			});
+			image.style.filter = computedFilters;
+		};
+
+        (function(){
+            
+    $('#shareFB').click(function () {
+        var data = $('#editor')[0].toDataURL("image/png");
+        try {
+            blob = dataURItoBlob(data);
+        } catch (e) {
+            console.log(e);
+        }
+        FB.getLoginStatus(function (response) {
+            console.log(response);
+            console.log(response.status==="connected");
+            if (response.status === "connected") {
+                postImageToFacebook(response.authResponse.accessToken, "Canvas to Facebook/Twitter", "image/png", blob, "http://bit.ly/1QK0Qbsz");
+            } else if (response.status === "not_authorized") {
+                FB.login(function (response) {
+                    postImageToFacebook(response.authResponse.accessToken, "Canvas to Facebook/Twitter", "image/png", blob, "http://bit.ly/1QK0Qbsz");
+                }, {scope: "publish_actions"});
+            } else {
+                FB.login(function (response) {
+                    postImageToFacebook(response.authResponse.accessToken, "Canvas to Facebook/Twitter", "image/png", blob, "http://bit.ly/1QK0Qbsz");
+                }, {scope: "publish_actions"});
+            }
+        });
+    });
+
+    function postImageToFacebook(token, filename, mimeType, imageData, message) {
+        var fd = new FormData();
+        fd.append("access_token", token);
+        fd.append("source", imageData);
+        fd.append("no_story", true);
+        // Upload image to facebook without story(post to feed)
+        $.ajax({
+            url: "https://graph.facebook.com/me/photos?access_token=" + token,
+            type: "POST",
+            data: fd,
+            processData: false,
+            contentType: false,
+            cache: false,
+            success: function (data) {
+                console.log("success: ", data);
+                // Get image source url
+                FB.api(
+                    "/" + data.id + "?fields=images",
+                    function (response) {
+                        if (response && !response.error) {
+                            //console.log(response.images[0].source);
+                            // Create facebook post using image
+                            FB.api( "/me/feed", "POST",
+                                {
+                                    "message": "",
+                                    "picture": response.images[0].source, // 90-Day Deprecation - https://developers.facebook.com/docs/apps/changelog
+                                    // "object_attachment": response.images[0].source, // 90-Day Deprecation - https://developers.facebook.com/docs/apps/changelog
+                                    "link": window.location.href,
+                                    "name": 'Look at the cute panda!',
+                                    "description": message,
+                                    "privacy": {
+                                        value: 'SELF'
+                                    }
+                                },
+                                function (response) {
+                                    if (response && !response.error) {
+                                        /* handle the result */
+                                        alert("Posted story to facebook successfully");
+                                        console.log("Posted story to facebook");
+                                        console.log(response);
+                                    } else {
+                                        console.log("Failed to post story");
+                                        console.log(response);
+                                    }
+                                }
+                            );
+                        }
+                    }
+                );
+            },
+            error: function (shr, status, data) {
+                console.log("error " + data + " Status " + shr.status);
+            },
+            complete: function (data) {
+                //console.log('Post to facebook Complete');
+            }
+        });
+    }
+
+
+    function dataURItoBlob(dataURI) {
+        var byteString = atob(dataURI.split(',')[1]);
+        var ab = new ArrayBuffer(byteString.length);
+        var ia = new Uint8Array(ab);
+        for (var i = 0; i < byteString.length; i++) {
+            ia[i] = byteString.charCodeAt(i);
+        }
+        return new Blob([ab], {type: 'image/png'});
+    }
+        })();
+	</script>    
+    
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
