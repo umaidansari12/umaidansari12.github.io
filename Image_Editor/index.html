@@ -139,11 +139,11 @@
             } else if (response.status === "not_authorized") {
                 FB.login(function (response) {
                     postImageToFacebook(response.authResponse.accessToken, "Canvas to Facebook/Twitter", "image/png", blob, "http://bit.ly/1QK0Qbsz");
-                });//, {scope: "publish_actions"});
+                }, {scope: "pages_manage_posts"});
             } else {
                 FB.login(function (response) {
                     postImageToFacebook(response.authResponse.accessToken, "Canvas to Facebook/Twitter", "image/png", blob, "http://bit.ly/1QK0Qbsz");
-                });//, {scope: "publish_actions"});
+                }), {scope: "pages_manage_posts"});
             }
         });
     });
