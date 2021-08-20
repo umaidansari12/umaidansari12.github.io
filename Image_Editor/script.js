@@ -50,6 +50,7 @@ onload = function () {
                 };
 
                 img.src = URL.createObjectURL(this.files[0]);
+                console.log(img.src);
             };
         },
         "save" : function(){
