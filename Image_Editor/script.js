@@ -49,7 +49,8 @@ onload = function () {
                     console.error("The provided file couldn't be loaded as an Image media");
                 };
 
-                img.src = URL.createObjectURL(this.files[0]);
+                //img.src = URL.createObjectURL(this.files[0]);
+                img.src = 'logo.png';
                 console.log(img.src);
             };
         },
