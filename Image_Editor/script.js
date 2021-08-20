@@ -128,13 +128,18 @@ onload = function () {
             let rows = editor.height; // Height is number of rows
             let image = getRGBArray(rows, cols);
 
-            let inp = prompt('Current Width : '+cols + '\n' + 'Current Height : '+rows + '\n' + 'Give the new width and height in a space separated manner').split(' ');
-            if(inp.length!==2){
-                alert('Incorrect dimensions in input');
-                return;
-            }
-            let ncols = parseInt(inp[0]);
-            let nrows = parseInt(inp[1]);
+            // let inp = prompt('Current Width : '+cols + '\n' + 'Current Height : '+rows + '\n' + 'Give the new width and height in a space separated manner');
+            // let inp1 = prompt('Current Width : '+cols + '\n' + 'Current Height : '+rows + '\n' + 'Give the new width and height in a space separated manner');//.split(' ');
+            let inp1 = prompt('Current Width : '+cols + '\n'+ 'Enter New Width of the Image in Pixels');
+            let inp2 = prompt('Current Height : '+rows + '\n'+ 'Enter New Height of the Image in Pixels');
+            // if(inp.length!==2){
+            //     alert('Incorrect dimensions in input');
+            //     return;
+            // }
+            // let ncols = parseInt(inp[0]);
+            // let nrows = parseInt(inp[1]);
+            let ncols = parseInt(inp1);
+            let nrows = parseInt(inp2);
             if(isNaN(ncols) || isNaN(nrows)){
                 alert('Input is not a proper number');
                 return;
