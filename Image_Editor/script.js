@@ -49,13 +49,13 @@ onload = function () {
                     console.error("The provided file couldn't be loaded as an Image media");
                 };
                 img.src = URL.createObjectURL(this.files[0]);
-                const image = editor.toDataURL();
-                const link = document.createElement('a');
-                link.download = 'image.png';
-                link.href = image;
-                link.click();
-                img.src = 'image.png';
-                console.log(img.src);
+                // const image = editor.toDataURL();
+                // const link = document.createElement('a');
+                // //link.download = 'image.png';
+                // link.href = image;
+                // link.click();
+                // img.src = 'image.png';
+                // console.log(img.src);
             };
         },
         "save" : function(){
