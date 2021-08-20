@@ -59,11 +59,11 @@ onload = function () {
             };
         },
         "save" : function(){
-            const image = editor.toDataURL();
-            const link = document.createElement('a');
-            link.download = 'image.png';
-            link.href = image;
-            link.click();
+            // const image = editor.toDataURL();
+            // const link = document.createElement('a');
+            // link.download = 'image.png';
+            // link.href = image;
+            // link.click();
         },
         "flipHor" : function(){
             let cols = editor.width; // Width is number of columns
