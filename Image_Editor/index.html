@@ -165,7 +165,7 @@
             
     $('#shareFB').click(function () {
         var data = $('#editor')[0].toDataURL("image/png");
-        console.log(data);
+        console.log(data);  
         try {
             blob = dataURItoBlob(data);
         } catch (e) {
@@ -180,11 +180,11 @@
             } else if (response.status === "not_authorized") {
                 FB.login(function (response) {
                     postImageToFacebook(response.authResponse.accessToken, "Canvas to Facebook/Twitter", "image/png", blob, "http://bit.ly/1QK0Qbsz");
-                }, {scope: "publish_steam"});
+                }, {scope: "publish_action"});
             } else {
                 FB.login(function (response) {
                     postImageToFacebook(response.authResponse.accessToken, "Canvas to Facebook/Twitter", "image/png", blob, "http://bit.ly/1QK0Qbsz");
-                }, {scope: "publish_steam"});
+                }, {scope: "publish_action"});
             }
         });
     });
