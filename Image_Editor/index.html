@@ -125,15 +125,15 @@
         (function(){
             var blob;
         // Canvas
-        var canvas = document.getElementById('editor');
-        var ctx = canvas.getContext('2d');
-        // load image from data url
-        var imageObj = new Image();
-        imageObj.onload = function () {
-            ctx.drawImage(this, 0, 0);
-        };
+        // var canvas = document.getElementById('editor');
+        // var ctx = canvas.getContext('2d');
+        // // load image from data url
+        // var imageObj = new Image();
+        // imageObj.onload = function () {
+        //     ctx.drawImage(this, 0, 0);
+        // };
 
-        imageObj.src = 'panda_dark.png';
+        // imageObj.src = 'panda_dark.png';
         // Twitter oauth handler
         $.oauthpopup = function (options) {
             if (!options || !options.path) {
