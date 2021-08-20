@@ -12,11 +12,13 @@
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Rampart+One&display=swap');
             </style>
+            <link rel="stylesheet" href="dialog.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="image-editor.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="script.js"></script>
+    <script src = "dialog_box.js"></script>
     <script>
         window.fbAsyncInit = function () {
             FB.init({
@@ -115,6 +117,26 @@
 
     </div>
     <script type="text/javascript">
+        document.querySelector('#save').addEventListener('click', () => {
+      Confirm.open({
+      title: 'Choose Image Format?',
+      message: 'JPEG / PNG',
+      onok: () => {
+            const image = editor.toDataURL();
+            const link = document.createElement('a');
+            link.download = 'image.jpeg';
+            link.href = image;
+            link.click();
+      },
+      oncancel : ()=> {
+        const image = editor.toDataURL();
+            const link = document.createElement('a');
+            link.download = 'image.png';
+            link.href = image;
+            link.click();
+      }
+    })
+   });
 		var image = document.querySelector("#editor");
 		var filterControls = document.querySelectorAll('input[type=range]');
 		function applyFilter() {
