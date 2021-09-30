@@ -11,8 +11,8 @@
 #editorContainer {
     display:block;
     overflow:auto;
-    width: 800px;
-    height: 500px;
+    width: 1000px;
+    height: 550px;
 }
 
 #editor {
