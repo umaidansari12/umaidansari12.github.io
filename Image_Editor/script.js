@@ -2,6 +2,7 @@
 onload = function () {
     const editor = document.getElementById("editor");
     const context = editor.getContext("2d");
+    const imageEditor = document.getElementById("imageEditor");
     const toolbar = document.getElementById("toolbar");
 
     var blob;
@@ -43,6 +44,8 @@ onload = function () {
                 img.onload = () => {
                     editor.width = img.width;
                     editor.height = img.height;
+                    imageEditor.style.width = img.width;
+                    imageEditor.style.height = img.height;
                     context.drawImage(img, 0,0);
                 };
                 img.onerror = () => {
