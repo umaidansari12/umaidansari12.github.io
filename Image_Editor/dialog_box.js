@@ -45,25 +45,22 @@ const Confirm = {
             options.onok();
             this._close(confirmEl);
         });
-
         btnCancel.addEventListener('click', () => {
             options.oncancel();
             this._close(confirmEl);
         });
-
         btnClose.addEventListener('click', () => {
             this._close(confirmEl);
         })
+        document.body.appendChild(template.content);
+    },
 
-        // [btnCancel, btnClose].forEach(el => {
+    // [btnCancel, btnClose].forEach(el => {
         //     el.addEventListener('click', () => {
         //         options.oncancel();
         //         this._close(confirmEl);
         //     });
         // });
-
-        document.body.appendChild(template.content);
-    },
 
     _close (confirmEl) {
         confirmEl.classList.add('confirm--close');
